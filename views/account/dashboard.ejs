@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="card-panel text-center">
+            <ul class="stepper horizontal" style="min-height: 600px;">
+                <li class="step active">
+                        <div data-step-label="Upload MySQL db schema file" class="step-title waves-effect waves-dark">Upload File</div>
+                    <div class="step-content">
+                        <div class="row">
+                            <div class="file-field input-field">
+                                <div class="btn blue pulse">
+                                  <span>File</span>
+                                  <input type="file" name="document" />
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input name="filename" class="file-path validate" type="text" />
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row center-align">
+                            <div class="col- s4 center-align">
+                                <div class="card blue center-align" style="width: 75%; position: relative; left: 10%;">
+                                    <div class="card-content white-text">
+                                        <p>To create a sql script with just schema please run the following command</p> 
+                                        <p>"mysqldump -d -u someuser -p mydatabase > mydatabase.sql"</p>
+                                        <br />
+                                        <p>We only accept MySQL db schema files of 1MB or less. </p>
+                                        <p>Thank you =)</p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                  <div class="step-actions">
+                      <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+                  </div>
+                    </div>
+                        
+                </li>
+                <li class="step">
+                    <div data-step-label="Choose Template" class="step-title waves-effect waves-dark">Choose Template</div>
+                    <div class="step-content">
+                        <input type="hidden" id="stripeToken" name="stripeToken" display="none" value="0" />
+                        <input type="hidden" id="templateId" name="templateId" display="none" value="0" />
+                        <input type="hidden" id="txtAmount" name="txtAmount" display="none" value="0" />
+                        <div class="row center-align">
+                           
+                                <!-- MATERIALIZE CSS USES 12 COLUMN GRID SYSTEM, DETAILS http://materializecss.com/grid.html -->
+                        <div class="col s4 center-align">
+                            <!-- START PRICING PLAN -->
+                            <div class="center-align card pricing style-1">
+                                <!-- START PRICE INFO DIV. -->
+                                <!-- CHANGE COLOR BY CHANGING LAST 2 CLASSES (teal lighten-1) AVAILABLE COLOR CLASSES LISTED HERE http://materializecss.com/color.html -->
+                                <div class="price waves-effect waves-block waves-light blue lighten-1">
+                                    <h4 class="white-text">
+                                        <span class="white-text">
+                                           
+                                        </span>
+                                    </h4>
+                                </div>
+                                <!-- END PRICE INFO DIV -->
+                                <div class="card-content">
+                                    <h4 class="blue-text">$&nbsp;
+                                       
+                                    </h4>
+                                    <!-- START SIGN UP BUTTON -->
+                                    <div class="plan-signup-btn blue">
+                                        <a id="btn-Purchase"class="btn blue waves-effect waves-block waves-light no-margin white-text">Select Template</a>
+                                    </div>
+                                    <!-- END SIGN UP BUTTON -->
+                                </div>
+                            </div>                    
+                            <!-- END PRICING PLAN -->
+                        </div>
+                         
+                        </div>
+                        <h3 class="blue-text" id="lblMessage">Please purchase to the next step!</h3>
+                        <div class="step-actions">
+                            <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                        <div data-step-label="Build App" class="step-title waves-effect waves-dark">Build App</div>
+                        <div class="step-content">
+                            <div class="row">
+                                <div id="workingProgress" class="abbtprogress hide">
+                                        <h3 class="blue-text">Building app</h3>
+                                        <div class="grey progress">
+                                                <div class="blue indeterminate" ></div>
+                                        </div>
+                                </div>
+                                <button id="btnSubmit" class="btn pulse wave blue col s12" value="Build App">Build App</button>
+                            </div>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <table class="stripped">
+        <thead>
+          <tr>
+              <th>Project Name</th>
+              <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Project Name will be displayed here</td>
+            <td><a class="waves-effect waves-light btn-small">Download</a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
