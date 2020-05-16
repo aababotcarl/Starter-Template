@@ -3,21 +3,24 @@
 
     "username": "carl",
     "password": "a@baBot2323",
-    "database": "AuthDB",
+    "database": "AuthBasic",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "timestamps": false
+    }
+  },
+  "test": {
+    "username": "carl",
+    "password": "a@baBot2323",
+    "database": "AuthBasic",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "test": {
-    "username": "",
-    "password": null,
-    "database": "",
-    "host": "",
-    "dialect": "mysql"
-  },
   "production": {
-    "username": "",
-    "password": null,
-    "database": "",
+    "username": "carl",
+    "password": "a@baBot2323",
+    "database": "AuthBasic",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
