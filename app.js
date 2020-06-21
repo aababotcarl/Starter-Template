@@ -1,70 +1,44 @@
-const express    = require('express');
-const app        = express();
-const passport   = require('passport');
-const session    = require('express-session');
-const connRoles = require('connect-roles');
-const expressvalidator = require('express-validator');
-const cookieParser = require('cookie-parser')
-const expressLayouts = require('express-ejs-layouts');
-const bodyParser = require('body-parser');
-const path = require('path');
-const env        = require('dotenv').config();
+var express = require('express');
+var app = express();
+var passport = require('passport');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var expressLayouts = require('express-ejs-layouts');
 
-
-//For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
+//bodyparser setup
+app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
-
- // For Passport
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(cookieParser());
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+//passport setup
+app.use(session({secret: 'MYS3CR3TK3Y', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-// middleware to make 'user' available to all templates
-app.use(function (req, res, next) {
-  res.locals.user = req.user;
-  res.locals.isAuthenticated = req.isAuthenticated;
-  next();
-});
-
-// view engine && public dir setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', './Views');
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
-//epxress layout templates
+
+//set ejs laytouts
 app.use(expressLayouts);
 
-// home
-app.get('/', function(req, res){
-res.render('home/index.ejs');
-});
+//models for the database
+var models = require('./Models');
 
+//routes
+var routes = require('./Routes/index.js')(app, passport);
 
-//Models
-const models = require("./models");
-
-//load passport strategies
+//passport config
 require('./config/passport.js')(passport, models.User);
 
-//Routes
-const account = require('./controllers/account.js')(app,passport);
-
-
-
-//Sync Database
+//sync db
 models.sequelize.sync().then(function(){
-console.log('Nice! Database looks fine')
-
+	console.log("Database setup!");
 }).catch(function(err){
-console.log(err,"Something went wrong with the Database Update!")
+	console.log(err);
 });
 
+//run app
 app.listen(3000, function(err){
-  if(!err)
-  console.log("Site is live"); else console.log(err)
+	if(!err)
+		console.log('app is working correctly.');
+	console.log(err);
 });
