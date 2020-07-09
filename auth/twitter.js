@@ -1,6 +1,6 @@
 var passport = require('passport')
   , TwitterStrategy = require('passport-twitter').Strategy;
-var User = require('../models/User');
+var User = require('../Models/User');
 
 passport.serializeUser(function (user, fn) {
   fn(null, user);
@@ -26,5 +26,4 @@ passport.use(new TwitterStrategy({
     });
   }
 ));
-
 module.exports = passport;

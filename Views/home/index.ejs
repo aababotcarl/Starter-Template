@@ -3,7 +3,7 @@
   <div class="secondary-overlay">
   <div id="home" class="showcase container">
     <div class="row">
-      <h1 class="blue-text cneter">Basic Authentication with Passport + Sequelize in an Express.js Web App</h1>
+      <h1 class="blue-text center">Basic Authentication with Passport + Sequelize in an Express.js Web App</h1>
       <br/>
       <div class="col s6 center">
         <a href="/account/signin" class="btn btn-large green white-text">Sign In</a>
@@ -15,3 +15,80 @@
   </div>
   </div>
 </div>
+  <div class="full-width blue">
+      <div class="pricing-container">
+        <div class="pricing-switcher">
+          <p class="fieldset">
+            <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
+            <label for="monthly-1">Monthly</label>
+            <input type="radio" name="duration-1" value="yearly" id="yearly-1">
+            <label for="yearly-1">Yearly</label>
+            <span class="switch"></span>
+          </p>
+        </div>
+        <ul class="pricing-list bounce-invert">
+          <% products.forEach((product, i) => { %>
+            
+              <% product.plans.forEach((plan, j) => { %>
+          <li>
+            <ul class="pricing-wrapper">
+              <% if( product.name === 'monthly') { %>
+              <li data-type="monthly" class="is-visible">
+                <header class="pricing-header">
+                  <h2><%= plan.nickname %></h2>
+                  <div class="price">
+                    <span class="currency">$</span>
+                    <span class="value"><%= plan.amount %></span>
+                    <span class="duration">mo</span>
+                  </div>
+                </header>
+                <div class="pricing-body">
+                  <ul class="pricing-features">
+                    <li><em>5</em> Email Accounts</li>
+                    <li><em>1</em> Template Style</li>
+                    <li><em>25</em> Products Loaded</li>
+                    <li><em>1</em> Image per Product</li>
+                    <li><em>Unlimited</em> Bandwidth</li>
+                    <li><em>24/7</em> Support</li>
+                  </ul>
+                </div>
+                <footer class="pricing-footer">
+                  <a class="select" href="#">Sign Up</a>
+                </footer>
+              </li>
+              <%} %>
+              <% if( product.name === 'annually') { %>
+              <li data-type="yearly" class="is-hidden">
+                <header class="pricing-header">
+                  <h2><%= plan.nickname %></h2>
+                  <div class="price">
+                    <span class="currency">$</span>
+                    <span class="value"><%= plan.amount %></span>
+                    <span class="duration">yr</span>
+                  </div>
+                </header>
+                <div class="pricing-body">
+                  <ul class="pricing-features">
+                    <li><em>5</em> Email Accounts</li>
+                    <li><em>1</em> Template Style</li>
+                    <li><em>25</em> Products Loaded</li>
+                    <li><em>1</em> Image per Product</li>
+                    <li><em>Unlimited</em> Bandwidth</li>
+                    <li><em>24/7</em> Support</li>
+                  </ul>
+                </div>
+                <footer class="pricing-footer">
+                  <a class="select" href="#">Sign Up</a>
+                </footer>
+              </li>
+              <% } %>
+            </ul>
+          </li>
+          <%}) %>
+          <% }) %>
+        </ul>
+      </div>
+  </div>
+
+
+

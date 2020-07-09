@@ -1,6 +1,6 @@
 var passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
-var User = require('../models/User');
+var User = require('../Models/User');
 
 passport.use(new FacebookStrategy({
     clientID: "159030901322260",
@@ -16,5 +16,4 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
-
 module.exports = passport;

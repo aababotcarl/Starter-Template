@@ -16,7 +16,7 @@ app.use(passport.session());
 
 app.set('views', './Views');
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public'));
 //set ejs laytouts
 app.use(expressLayouts);
 
