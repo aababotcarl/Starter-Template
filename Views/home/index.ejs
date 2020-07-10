@@ -15,24 +15,27 @@
   </div>
   </div>
 </div>
-  <div class="full-width blue">
-      <div class="pricing-container">
-        <div class="pricing-switcher">
-          <p class="fieldset">
-            <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
-            <label for="monthly-1">Monthly</label>
-            <input type="radio" name="duration-1" value="yearly" id="yearly-1">
-            <label for="yearly-1">Yearly</label>
-            <span class="switch"></span>
-          </p>
-        </div>
-        <ul class="pricing-list bounce-invert">
+<button onclick="document.querySelector('#flip-toggle').classList.toggle('hover');" class="sexyButton">Toggle Flip</button>
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="flip-toggle">
+	<div class="flipper">
+		<div class="front">
+      <!-- front content -->
+      <h1 class="blue-text">Front content</h1>
+		</div>
+		<div class="back">
+      <!-- back content -->
+      <h1 class="blue-text">Back content</h1>
+		</div>
+	</div>
+</div>
+
+        <!-- <ul class="pricing-list bounce-invert">
           <% products.forEach((product, i) => { %>
-            
-              <% product.plans.forEach((plan, j) => { %>
+            <% product.plans.forEach((plan, j) => { %>
           <li>
             <ul class="pricing-wrapper">
               <% if( product.name === 'monthly') { %>
+               
               <li data-type="monthly" class="is-visible">
                 <header class="pricing-header">
                   <h2><%= plan.nickname %></h2>
@@ -43,19 +46,20 @@
                   </div>
                 </header>
                 <div class="pricing-body">
-                  <ul class="pricing-features">
-                    <li><em>5</em> Email Accounts</li>
-                    <li><em>1</em> Template Style</li>
-                    <li><em>25</em> Products Loaded</li>
-                    <li><em>1</em> Image per Product</li>
-                    <li><em>Unlimited</em> Bandwidth</li>
-                    <li><em>24/7</em> Support</li>
+                    <ul class="pricing-features">
+                      <li><em>5</em> Email Accounts</li>
+                      <li><em>1</em> Template Style</li>
+                      <li><em>25</em> Products Loaded</li>
+                      <li><em>1</em> Image per Product</li>
+                      <li><em>Unlimited</em> Bandwidth</li>
+                      <li><em>24/7</em> Support</li>
                   </ul>
                 </div>
                 <footer class="pricing-footer">
                   <a class="select" href="#">Sign Up</a>
                 </footer>
               </li>
+             
               <%} %>
               <% if( product.name === 'annually') { %>
               <li data-type="yearly" class="is-hidden">
@@ -75,7 +79,7 @@
                     <li><em>1</em> Image per Product</li>
                     <li><em>Unlimited</em> Bandwidth</li>
                     <li><em>24/7</em> Support</li>
-                  </ul>
+                </ul>
                 </div>
                 <footer class="pricing-footer">
                   <a class="select" href="#">Sign Up</a>
@@ -86,7 +90,7 @@
           </li>
           <%}) %>
           <% }) %>
-        </ul>
+        </ul> -->
       </div>
   </div>
 
